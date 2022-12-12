@@ -1,6 +1,6 @@
 package com.example.myapplication.domain
 
 
-interface SourceRss {
+interface UserRssRepository {
     fun saveRss(url:String, name:String)
 }
