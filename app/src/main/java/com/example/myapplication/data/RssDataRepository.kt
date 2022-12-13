@@ -6,6 +6,6 @@ import com.example.myapplication.domain.UserRssRepository
 class RssDataRepository (private val source: XmlLocalDataSource): UserRssRepository{
 
     override fun saveRss(url: String, name: String) {
-        source.createRss(url, name)
+        source.saveRss(url, name)
     }
 }
