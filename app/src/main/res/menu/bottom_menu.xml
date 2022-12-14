@@ -4,9 +4,11 @@
     <item android:id="@+id/to_rss_feed_item"
         android:title="@string/feed_rss_name"
         android:icon="@drawable/rss_feed" />
+
     <item android:id="@+id/to_rss_manager_item"
         android:title="@string/rss_manager_name"
         android:icon="@drawable/rss_edit" />
+
     <item android:id="@+id/to_your_profile_item"
         android:title="@string/profile_name"
         android:icon="@drawable/profile" />
