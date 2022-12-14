@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
-
     }
 
     fun navigateToRssFeed(){
