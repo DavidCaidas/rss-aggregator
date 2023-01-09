@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/rss_feed_item"
+        android:title="@string/feed_rss_name"
+        android:icon="@drawable/rss_feed" />
+
+    <item android:id="@+id/rss_manager_item"
+        android:title="@string/rss_manager_name"
+        android:icon="@drawable/rss_edit" />
+
+    <item android:id="@+id/your_profile_item"
+        android:title="@string/profile_name"
+        android:icon="@drawable/profile" />
+
+</menu>

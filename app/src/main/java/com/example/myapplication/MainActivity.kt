@@ -2,27 +2,48 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.myapplication.data.remote.api.ApiClient
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import android.util.Log
-
+import androidx.navigation.findNavController
+import com.example.myapplication.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
-    val apiClient = ApiClient()
+    var binding:ActivityMainBinding?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setupBinding()
+        setupNavigation()
+    }
 
-        GlobalScope.launch {
-            try {
-                val model = apiClient.getRss("https://e00-marca.uecdn.es/rss/futbol/sevilla.xml")
-                Log.d("@dev", "model:$model")
-            } catch (ex: java.lang.Exception) {
-                Log.d("@dev-e", ex.message!!)
-            }
+    fun setupBinding(){
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding?.let {
+            setContentView(it.root)
         }
     }
+
+    fun setupNavigation(){
+        findViewById<BottomNavigationView>(R.id.bottom_menu).setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.to_rss_feed_item -> navigateToRssFeed()
+                R.id.to_rss_manager_item -> navigateToRssManager()
+                R.id.to_your_profile_item -> navigateToProfile()
+            }
+            true
+        }
+    }
+
+    fun navigateToRssFeed(){
+        findNavController(R.id.fragment_container_view).navigate(NavGraphDirections.actionToRssFeed())
+    }
+
+    fun navigateToRssManager(){
+        findNavController(R.id.fragment_container_view).navigate(NavGraphDirections.actionToRssManager())
+    }
+
+    fun navigateToProfile(){
+        findNavController(R.id.fragment_container_view).navigate(NavGraphDirections.actionToProfile())
+    }
+
 }

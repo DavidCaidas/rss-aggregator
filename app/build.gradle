@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -9,8 +11,10 @@ android {
 
     defaultConfig {
         applicationId "com.example.myapplication"
-        minSdk 21
-        targetSdk 33
+
+        minSdk 23
+        targetSdk 32
+
         versionCode 1
         versionName "1.0"
 
@@ -30,15 +34,22 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    viewBinding {
+        enabled = true
+    }
 }
 
 dependencies {
 
-
     //GSON
     implementation 'com.google.code.gson:gson:2.10'
-    implementation 'androidx.core:core-ktx:1.9.0'
-    
+    //NAVIGATION
+    def nav_version = "2.5.3"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    //ANDROID DEFAULT IMPLEMENTATIONS
+    implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
